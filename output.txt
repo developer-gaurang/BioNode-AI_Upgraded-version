@@ -1,0 +1,45 @@
+---
+Line 555: } catch (e) {
+  L558: ScaffoldMessenger.of(context).showSnackBar(
+  L559: SnackBar(
+  L560: content: Text('Error: ${e.toString()}'),
+---
+Line 767: } catch (e) {
+  L770: ScaffoldMessenger.of(context).showSnackBar(
+  L771: SnackBar(
+  L772: content: Text('Error: ${e.toString()}'),
+---
+Line 1824: } catch (e) {
+  L1827: ScaffoldMessenger.of(context).showSnackBar(
+  L1828: SnackBar(
+  L1829: content: Text('Error: ${e.toString()}'),
+---
+Line 1902: } catch (e) {
+  L1905: ScaffoldMessenger.of(context).showSnackBar(
+  L1906: SnackBar(
+  L1907: content: Text('Route Error: ${e.toString()}'),
+---
+Line 3533: } catch (e) {
+  L3535: ScaffoldMessenger.of(context).showSnackBar(
+  L3536: SnackBar(
+  L3537: content: Text('Location Error: ${e.toString()}'),
+---
+Line 3605: } catch (e) {
+  L3607: ScaffoldMessenger.of(context).showSnackBar(
+  L3608: SnackBar(
+  L3609: content: Text('Audio Error: ${e.toString()} (Simulating...)'),
+---
+Line 3670: } catch (e) {
+  L3672: ScaffoldMessenger.of(context).showSnackBar(
+  L3673: SnackBar(
+  L3674: content: Text('Stop Recording Error: ${e.toString()}'),
+---
+Line 3714: } catch (e) {
+  L3717: ScaffoldMessenger.of(context).showSnackBar(
+  L3718: SnackBar(
+  L3719: content: Text('Alarm Error: ${e.toString()}'),
+---
+Line 3739: } catch (e) {
+  L3742: ScaffoldMessenger.of(context).showSnackBar(
+  L3743: SnackBar(
+  L3744: content: Text('Firebase Alert Error: ${e.toString()}'),

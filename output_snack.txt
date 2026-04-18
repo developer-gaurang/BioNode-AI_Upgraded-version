@@ -1,0 +1,209 @@
+---
+Line 484: ScaffoldMessenger.of(context).showSnackBar(
+  L485: const SnackBar(
+  L486: content: Text('All fields are required for node initialization.'),
+  L487: ),
+  L488: );
+  L489: return;
+  L490: }
+  L491: 
+  L492: setState(() => _isLoading = true);
+  L493: 
+---
+Line 503: ScaffoldMessenger.of(context).showSnackBar(
+  L504: const SnackBar(
+  L505: content: Text(
+  L506: 'Node ID already exists! Please Authenticate instead.',
+  L507: ),
+  L508: backgroundColor: Color(0xFFFF9100),
+  L509: ),
+  L510: );
+  L511: return;
+  L512: }
+---
+Line 532: ScaffoldMessenger.of(context).showSnackBar(
+  L533: const SnackBar(
+  L534: content: Text(
+  L535: 'BioNode Securely Initialized! Please login to your node now.',
+  L536: ),
+  L537: backgroundColor: Color(0xFF2962FF),
+  L538: ),
+  L539: );
+  L540: 
+  L541: Navigator.pushReplacement(
+---
+Line 558: ScaffoldMessenger.of(context).showSnackBar(
+  L559: SnackBar(
+  L560: content: Text('Error: ${e.toString()}'),
+  L561: backgroundColor: const Color(0xFFFF2A5F),
+  L562: ),
+  L563: );
+  L564: }
+  L565: }
+  L566: 
+  L567: @override
+---
+Line 723: ScaffoldMessenger.of(context).showSnackBar(
+  L724: const SnackBar(
+  L725: content: Text('Please enter Node Alias and Quantum Key.'),
+  L726: ),
+  L727: );
+  L728: return;
+  L729: }
+  L730: 
+  L731: setState(() => _isLoading = true);
+  L732: await Future.delayed(
+---
+Line 760: ScaffoldMessenger.of(context).showSnackBar(
+  L761: const SnackBar(
+  L762: content: Text('Cloud Access Denied. Invalid Node ID or Key.'),
+  L763: backgroundColor: Color(0xFFFF2A5F),
+  L764: ),
+  L765: );
+  L766: }
+  L767: } catch (e) {
+  L768: if (mounted) {
+  L769: setState(() => _isLoading = false);
+---
+Line 770: ScaffoldMessenger.of(context).showSnackBar(
+  L771: SnackBar(
+  L772: content: Text('Error: ${e.toString()}'),
+  L773: backgroundColor: const Color(0xFFFF2A5F),
+  L774: ),
+  L775: );
+  L776: }
+  L777: }
+  L778: }
+  L779: 
+---
+Line 1827: ScaffoldMessenger.of(context).showSnackBar(
+  L1828: SnackBar(
+  L1829: content: Text('Error: ${e.toString()}'),
+  L1830: backgroundColor: const Color(0xFFFF2A5F),
+  L1831: ),
+  L1832: );
+  L1833: }
+  L1834: }
+  L1835: }
+  L1836: 
+---
+Line 1905: ScaffoldMessenger.of(context).showSnackBar(
+  L1906: SnackBar(
+  L1907: content: Text('Route Error: ${e.toString()}'),
+  L1908: backgroundColor: const Color(0xFFFF2A5F),
+  L1909: ),
+  L1910: );
+  L1911: }
+  L1912: }
+  L1913: 
+  L1914: @override
+---
+Line 2131: ScaffoldMessenger.of(context).showSnackBar(
+  L2132: const SnackBar(
+  L2133: content: Text('SWARM MODE ACTIVATED: Connected to 12 offline nodes via BLE Mesh.'),
+  L2134: backgroundColor: Color(0xFFD500F9),
+  L2135: duration: Duration(seconds: 4),
+  L2136: ),
+  L2137: );
+  L2138: },
+  L2139: child: _buildChip(
+  L2140: Icons.bluetooth_connected,
+---
+Line 2876: ScaffoldMessenger.of(context).showSnackBar(
+  L2877: const SnackBar(
+  L2878: content: Text('Document Attached Successfully!'),
+  L2879: backgroundColor: Color(0xFF00FFCC),
+  L2880: ),
+  L2881: );
+  L2882: }
+  L2883: }
+  L2884: 
+  L2885: Future<void> _saveRecord() async {
+---
+Line 2916: ScaffoldMessenger.of(context).showSnackBar(
+  L2917: SnackBar(
+  L2918: content: Text(
+  L2919: widget.docId == null
+  L2920: ? 'Record Encrypted & Synchronized!'
+  L2921: : 'Record Updated!',
+  L2922: ),
+  L2923: backgroundColor: const Color(0xFF00E5FF),
+  L2924: ),
+  L2925: );
+---
+Line 2939: ScaffoldMessenger.of(context).showSnackBar(
+  L2940: const SnackBar(
+  L2941: content: Text('Record Destroyed!'),
+  L2942: backgroundColor: Colors.redAccent,
+  L2943: ),
+  L2944: );
+  L2945: }
+  L2946: 
+  L2947: @override
+  L2948: Widget build(BuildContext context) {
+---
+Line 3535: ScaffoldMessenger.of(context).showSnackBar(
+  L3536: SnackBar(
+  L3537: content: Text('Location Error: ${e.toString()}'),
+  L3538: backgroundColor: const Color(0xFFFF2A5F),
+  L3539: ),
+  L3540: );
+  L3541: }
+  L3542: }
+  L3543: }
+  L3544: 
+---
+Line 3607: ScaffoldMessenger.of(context).showSnackBar(
+  L3608: SnackBar(
+  L3609: content: Text('Audio Error: ${e.toString()} (Simulating...)'),
+  L3610: backgroundColor: const Color(0xFFFF9100),
+  L3611: ),
+  L3612: );
+  L3613: }
+  L3614: // Web or permission denied — use simulated analysis
+  L3615: }
+  L3616: 
+---
+Line 3672: ScaffoldMessenger.of(context).showSnackBar(
+  L3673: SnackBar(
+  L3674: content: Text('Stop Recording Error: ${e.toString()}'),
+  L3675: backgroundColor: const Color(0xFFFF2A5F),
+  L3676: ),
+  L3677: );
+  L3678: }
+  L3679: }
+  L3680: }
+  L3681: 
+---
+Line 3717: ScaffoldMessenger.of(context).showSnackBar(
+  L3718: SnackBar(
+  L3719: content: Text('Alarm Error: ${e.toString()}'),
+  L3720: backgroundColor: const Color(0xFFFF2A5F),
+  L3721: ),
+  L3722: );
+  L3723: }
+  L3724: }
+  L3725: }
+  L3726: 
+---
+Line 3742: ScaffoldMessenger.of(context).showSnackBar(
+  L3743: SnackBar(
+  L3744: content: Text('Firebase Alert Error: ${e.toString()}'),
+  L3745: backgroundColor: const Color(0xFFFF2A5F),
+  L3746: ),
+  L3747: );
+  L3748: }
+  L3749: }
+  L3750: }
+  L3751: 
+---
+Line 3787: ScaffoldMessenger.of(context).showSnackBar(
+  L3788: const SnackBar(
+  L3789: content: Text('Maximum 5 emergency contacts allowed.'),
+  L3790: backgroundColor: Color(0xFFFF2A5F),
+  L3791: ),
+  L3792: );
+  L3793: return;
+  L3794: }
+  L3795: final name = _nameCtrl.text.trim();
+  L3796: final phone = _phoneCtrl.text.trim();
