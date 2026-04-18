@@ -20,13 +20,13 @@ Our engineering philosophy focuses on three core pillars: **Performant UI/UX**, 
 
 ## 📱 Interface Previews (UI/UX)
 <p align="center">
-  <img src="https://via.placeholder.com/250x500.png?text=Dashboard+UI" width="22%" alt="Dashboard Placeholder"/>
+  <img src="screenshots/dashboard.png" width="22%" alt="Dashboard UI"/>
   &nbsp;
-  <img src="https://via.placeholder.com/250x500.png?text=CrashGuard+SOS" width="22%" alt="SOS Placeholder"/>
+  <img src="screenshots/crashguard.png" width="22%" alt="CrashGuard SOS"/>
   &nbsp;
-  <img src="https://via.placeholder.com/250x500.png?text=Health+Vault" width="22%" alt="Vault Placeholder"/>
+  <img src="screenshots/vault.png" width="22%" alt="Health Vault"/>
   &nbsp;
-  <img src="https://via.placeholder.com/250x500.png?text=EcoMonitor+AI" width="22%" alt="Eco Placeholder"/>
+  <img src="screenshots/eco.png" width="22%" alt="EcoMonitor AI"/>
 </p>
 <p align="center"><i>Beautiful Glassmorphism interfaces built with custom Flutter CustomPainters and Shaders.</i></p>
 
