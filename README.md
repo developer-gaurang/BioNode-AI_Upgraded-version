@@ -36,15 +36,15 @@ Our engineering philosophy focuses on three core pillars: **Performant UI/UX**, 
 
 ```mermaid
 graph TD;
-    Client[Mobile Client (Flutter)] --> IAM[Firebase Auth / Firestore];
-    Client --> Env[Environment API];
-    Env --> Gemini[Gemini LLM Processing];
+    Client["Mobile Client (Flutter)"] --> IAM["Firebase Auth / Firestore"];
+    Client --> Env["Environment API"];
+    Env --> Gemini["Gemini LLM Processing"];
     Gemini --> Client;
-    Client --> Audio[Local Acoustic Analysis Model];
-    Audio -- High-Impact Detected --> SOS[Triggers Emergency Payload];
-    SOS --> SMS[SMS Gateway];
-    SOS --> Map[Real-time Firebase Broadcast];
-    Client --> Vault[Secure Medical SSR Vault];
+    Client --> Audio["Local Acoustic Analysis Model"];
+    Audio -- "High-Impact Detected" --> SOS["Triggers Emergency Payload"];
+    SOS --> SMS["SMS Gateway"];
+    SOS --> Map["Real-time Firebase Broadcast"];
+    Client --> Vault["Secure Medical SSR Vault"];
 ```
 
 ## 🚀 Core Capabilities
