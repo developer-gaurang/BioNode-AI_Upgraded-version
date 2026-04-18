@@ -1107,7 +1107,7 @@ class _DashboardTabState extends State<DashboardTab>
           '"forecast": "Detailed analytics on how the weather will be in the next 4-5 hours", "isHighRisk": false}';
 
       // 3. Analyze with Gemini (GenerativeModel SDK)
-      const String modelName = 'gemini-1.5-flash';
+      const String modelName = 'gemini-pro';
       final String apiKey = dotenv.env['GEMINI_API_KEY'] ?? 'AIzaSyBYKIwSztuPyiovRLnveWt6T821SPDSz40';
       
       final model = GenerativeModel(
