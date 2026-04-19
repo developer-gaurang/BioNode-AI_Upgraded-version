@@ -20,14 +20,16 @@ import 'package:image_picker/image_picker.dart';
 
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'government_features.dart';
+import 'personal_features.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   try {
     await dotenv.load(fileName: ".env");
     await Firebase.initializeApp(
-      options: const FirebaseOptions(
-        apiKey: "AIzaSyCPncT1Oaj0ZzP4bW1CafceH_-57oFqQtg",
+      options: FirebaseOptions(
+        apiKey: dotenv.env['FIREBASE_API_KEY'] ?? "MISSING_KEY",
         authDomain: "bionode-ai-16c42.firebaseapp.com",
         projectId: "bionode-ai-16c42",
         storageBucket: "bionode-ai-16c42.firebasestorage.app",
@@ -1108,7 +1110,7 @@ class _DashboardTabState extends State<DashboardTab>
 
       // 3. Analyze with Gemini (GenerativeModel SDK)
       const String modelName = 'gemini-2.5-flash';
-      final String apiKey = dotenv.env['GEMINI_API_KEY'] ?? 'AIzaSyBYKIwSztuPyiovRLnveWt6T821SPDSz40';
+      final String apiKey = dotenv.env['GEMINI_API_KEY'] ?? '';
       
       final model = GenerativeModel(
         model: modelName,
@@ -1131,10 +1133,15 @@ class _DashboardTabState extends State<DashboardTab>
         if (jsonMatch != null && mounted) {
           final parsed = jsonDecode(jsonMatch.group(0)!);
           setState(() {
-            _riskTitle  = (parsed['title'] ?? 'OUTDOOR CONDITIONS').toString().toUpperCase();
-            _riskProb   = parsed['condition'] ?? 'Safe';
-            _riskDetail = '${parsed['summary'] ?? ''}\n\n${parsed['precaution'] ?? ''}\n\n${parsed['forecast'] ?? ''}';
-            _isHighRisk = parsed['isHighRisk'] == true;
+            _riskTitle  = (parsed['title'] ?? parsed['Title'] ?? 'OUTDOOR CONDITIONS').toString().toUpperCase();
+            _riskProb   = parsed['condition'] ?? parsed['Condition'] ?? 'Safe';
+            
+            String sum = (parsed['summary'] ?? parsed['Summary'] ?? '').toString().trim();
+            String pre = (parsed['precaution'] ?? parsed['Precaution'] ?? '').toString().trim();
+            String fcast = (parsed['forecast'] ?? parsed['Forecast'] ?? '').toString().trim();
+            
+            _riskDetail = '$sum\n\n$pre\n\n$fcast';
+            _isHighRisk = parsed['isHighRisk'] == true || parsed['IsHighRisk'] == true;
             _geminiError = null;
           });
         }
@@ -1329,6 +1336,8 @@ class _DashboardTabState extends State<DashboardTab>
           const SizedBox(height: 48),
 
           _buildPredictiveEngine(),
+          const SizedBox(height: 40),
+          const CircadianPredictorWidget(),
         ],
       ),
     );
@@ -1537,8 +1546,9 @@ class _DashboardTabState extends State<DashboardTab>
                   ],
                 )
               else ...[
-                // --- CURRENT SUMMARY ---
-                _buildInfoBlock('Current View', summaryText, Icons.info_outline, const Color(0xFF00FFCC)),
+                summaryText.isNotEmpty
+                  ? _buildInfoBlock('Current View', summaryText, Icons.info_outline, const Color(0xFF00FFCC))
+                  : _buildInfoBlock('Current View', 'Collecting atmospheric data...', Icons.info_outline, const Color(0xFF00FFCC)),
                 
                 const SizedBox(height: 14),
                 
@@ -2198,6 +2208,8 @@ class _EcoMonitorTabState extends State<EcoMonitorTab> {
                           ),
                         ),
                         const SizedBox(height: 24),
+                        const EpidemicHeatmapWidget(),
+                        const SizedBox(height: 24),
                         EliteTextField(
                           icon: Icons.my_location_rounded,
                           hint: 'Start (e.g., Mumbai)',
@@ -2444,6 +2456,11 @@ class HealthVaultTab extends StatelessWidget {
               letterSpacing: 2.0,
             ),
           ),
+          const SizedBox(height: 24),
+          const VitalsScannerWidget(),
+          const ARChemicalDecoderWidget(),
+          const MindBlackboxWidget(),
+          const DigitalLegacyWidget(),
           // (PharmaNode Scanner moved to floating button)
           // 🔥 LIFEGRID: AUTOMATED BLOOD SOS
           _buildArchive(
@@ -3850,8 +3867,16 @@ class _CrashGuardTabState extends State<CrashGuardTab>
           _buildMainShield(),
           const SizedBox(height: 32),
           _buildStatusCard(),
-          if (_isCrashDetected) ...[const SizedBox(height: 24), _buildAlertMap()],
+          if (_isCrashDetected) ...[
+            const SizedBox(height: 24), 
+            _buildAlertMap(),
+            const SmartTriageWidget(),
+          ],
           const SizedBox(height: 40),
+          const SentinelModeWidget(),
+          const SleepGuardianWidget(),
+          const AdHocMeshWidget(),
+          const SizedBox(height: 16),
           _buildNearbyAlerts(),
           const SizedBox(height: 40),
           _buildEmergencyContacts(),
